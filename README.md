@@ -6,6 +6,13 @@
 
 ---
 
+### `thread.control` — 스레드 정보 조회
+- `ThreadInfoMain` — `Thread` 객체의 메타정보(ID, 이름, 우선순위, 그룹, 상태) 출력
+- 생성된 스레드는 `start()` 전 `NEW` 상태임을 확인
+- 주요 API: `threadId()`, `getName()`, `getPriority()`, `getThreadGroup()`, `getState()`
+
+---
+
 ### `thread.start.test` — 스레드 생성 방식 실습
 - `StartTest1Main` — `Thread` 상속으로 카운터 스레드 구현
 - `StartTest2Main` — `Runnable` 구현체 + `Thread` 생성자에 이름 지정
