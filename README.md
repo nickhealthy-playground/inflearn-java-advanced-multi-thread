@@ -6,6 +6,13 @@
 
 ---
 
+### `util` — 스레드 로깅 유틸리티
+- `MyLogger` — 스레드 이름·시간을 포함한 로그 출력 추상 클래스 (static 메서드로 사용)
+- 멀티스레드 환경에서 어느 스레드가 어느 시점에 실행 중인지 한눈에 파악하기 위한 공통 유틸
+- 주요 API: `log(Object)`, `Thread.currentThread().getName()`, `DateTimeFormatter`
+
+---
+
 ### `thread.start` — 스레드 생성과 실행
 - `Thread` — 상속 후 `run()` 오버라이드로 작업 정의
 - `start()` vs `run()`: `start()`만 새 스레드 생성, `run()` 직접 호출은 메인 스레드에서 실행
