@@ -9,8 +9,12 @@
 ### `thread.control.join` — Thread.join() 학습
 - `JoinMainV0` — `join()` 없이 스레드 실행 후 메인 스레드가 먼저 종료되는 문제 확인
 - `JoinMainV1` — `join()` 없이 스레드 계산 결과를 가져오려다 항상 0이 나오는 경쟁 조건 확인
+- `JoinMainV2` — `sleep()`으로 타이밍을 맞추는 방식 — 정확한 대기 시간 예측이 어려움을 시연
+- `JoinMainV3` — `thread.join()`으로 스레드 종료 시까지 무한 대기 — 경쟁 조건 해결
+- `JoinMainV4` — `thread.join(ms)`으로 최대 N밀리초만 대기하는 타임아웃 join 확인
 - `join()` 미사용 시 메인 스레드가 작업 완료 전에 결과를 읽어 올바른 값을 얻지 못함
-- 주요 API: `Thread.join()`, `Runnable`
+- `join(ms)` 사용 시 타임아웃 내 완료 여부와 무관하게 대기 해제
+- 주요 API: `Thread.join()`, `Thread.join(long millis)`, `Runnable`
 
 ---
 
