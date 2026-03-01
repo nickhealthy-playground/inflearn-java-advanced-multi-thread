@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.control.test` — Thread.join() 실습
+- `JoinTest1Main` — `start → join` 순차 반복으로 스레드를 직렬 실행 (이전 스레드 완료 후 다음 시작)
+- `JoinTest2Main` — 모두 `start` 후 순서대로 `join`으로 병렬 실행 후 대기
+- 직렬 실행(총 9초) vs 병렬 실행(총 3초) 성능 차이 비교
+- 주요 API: `Thread.start()`, `Thread.join()`
+
+---
+
 ### `thread.control.join` — Thread.join() 학습
 - `JoinMainV0` — `join()` 없이 스레드 실행 후 메인 스레드가 먼저 종료되는 문제 확인
 - `JoinMainV1` — `join()` 없이 스레드 계산 결과를 가져오려다 항상 0이 나오는 경쟁 조건 확인
