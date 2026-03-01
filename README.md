@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.control.join` — Thread.join() 학습
+- `JoinMainV0` — `join()` 없이 스레드 실행 후 메인 스레드가 먼저 종료되는 문제 확인
+- `JoinMainV1` — `join()` 없이 스레드 계산 결과를 가져오려다 항상 0이 나오는 경쟁 조건 확인
+- `join()` 미사용 시 메인 스레드가 작업 완료 전에 결과를 읽어 올바른 값을 얻지 못함
+- 주요 API: `Thread.join()`, `Runnable`
+
+---
+
 ### `thread.control` — 스레드 정보 조회 및 생명주기
 - `ThreadInfoMain` — `Thread` 객체의 메타정보(ID, 이름, 우선순위, 그룹, 상태) 출력
 - `ThreadStateMain` — 스레드 생명주기 상태(NEW → RUNNABLE → TIMED_WAITING → TERMINATED) 전환 확인
