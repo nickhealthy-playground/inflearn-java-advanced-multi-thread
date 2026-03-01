@@ -6,10 +6,11 @@
 
 ---
 
-### `thread.control` — 스레드 정보 조회
+### `thread.control` — 스레드 정보 조회 및 생명주기
 - `ThreadInfoMain` — `Thread` 객체의 메타정보(ID, 이름, 우선순위, 그룹, 상태) 출력
-- 생성된 스레드는 `start()` 전 `NEW` 상태임을 확인
-- 주요 API: `threadId()`, `getName()`, `getPriority()`, `getThreadGroup()`, `getState()`
+- `ThreadStateMain` — 스레드 생명주기 상태(NEW → RUNNABLE → TIMED_WAITING → TERMINATED) 전환 확인
+- `sleep()` 중인 스레드는 외부에서 `TIMED_WAITING`으로, 스레드 내부에서는 `RUNNABLE`로 보임
+- 주요 API: `threadId()`, `getName()`, `getPriority()`, `getThreadGroup()`, `getState()`, `Thread.State`
 
 ---
 
