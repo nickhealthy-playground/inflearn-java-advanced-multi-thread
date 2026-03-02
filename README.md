@@ -6,6 +6,15 @@
 
 ---
 
+### `thread.interrupt` — 스레드 인터럽트로 작업 중단
+- `ThreadStopMainV1` — `volatile boolean runFlag`로 중단 — `sleep()` 중 플래그 확인 불가로 지연 중단
+- `ThreadStopMainV2` — `thread.interrupt()`로 중단 — `sleep()` 중 `InterruptedException` 발생, catch 후 인터럽트 상태 false로 초기화
+- `ThreadStopMainV3` — `isInterrupted()`로 루프 탈출 — 인터럽트 상태 true 유지로 자원 정리 중 sleep에서 또 예외 발생
+- `ThreadStopMainV4` — `Thread.interrupted()`로 루프 탈출 — 상태를 false로 초기화하여 자원 정리 정상 완료 (권장 패턴)
+- 주요 API: `thread.interrupt()`, `Thread.currentThread().isInterrupted()`, `Thread.interrupted()`, `volatile`
+
+---
+
 ### `thread.control.test` — Thread.join() 실습
 - `JoinTest1Main` — `start → join` 순차 반복으로 스레드를 직렬 실행 (이전 스레드 완료 후 다음 시작)
 - `JoinTest2Main` — 모두 `start` 후 순서대로 `join`으로 병렬 실행 후 대기
