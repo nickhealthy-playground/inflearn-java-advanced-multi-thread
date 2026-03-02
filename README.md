@@ -6,11 +6,20 @@
 
 ---
 
+### `thread.control.yield` — Thread.yield() 학습
+- `YieldMain` — 1000개 스레드가 각 10회 출력하며 `Thread.yield()`로 CPU 양보 동작 확인
+- `yield()`는 현재 스레드가 다른 스레드에 실행 기회를 넘기지만 보장은 없음 (힌트 수준)
+- `sleep(0)` 대비 OS 스케줄러 의존도 높고 플랫폼마다 동작 상이
+- 주요 API: `Thread.yield()`
+
+---
+
 ### `thread.control.printer` — 인터럽트 적용 프린터 실습
 - `MyPrinterV1` — `volatile boolean work` 플래그로 중단 — `sleep()` 중 플래그 확인 불가 (지연 중단 문제)
 - `MyPrinterV2` — `work = false` + `printThread.interrupt()` 조합 — `sleep()` 중 `InterruptedException` 즉시 발생
 - `MyPrinterV3` — `volatile` 플래그 제거, `Thread.interrupted()` + `interrupt()` 단독 사용 — 인터럽트로 모든 중단 제어 (권장 패턴)
-- 주요 API: `ConcurrentLinkedQueue`, `volatile`, `thread.interrupt()`, `Thread.interrupted()`
+- `MyPrinterV4` — V3에 `Thread.yield()` 추가 — 빈 큐 대기 시 busy-wait 대신 yield로 CPU 양보
+- 주요 API: `ConcurrentLinkedQueue`, `volatile`, `thread.interrupt()`, `Thread.interrupted()`, `Thread.yield()`
 
 ---
 
