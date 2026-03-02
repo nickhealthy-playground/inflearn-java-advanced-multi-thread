@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.control.printer` — 인터럽트 적용 프린터 실습
+- `MyPrinterV1` — `volatile boolean work` 플래그로 중단 — `sleep()` 중 플래그 확인 불가 (지연 중단 문제)
+- `MyPrinterV2` — `work = false` + `printThread.interrupt()` 조합 — `sleep()` 중 `InterruptedException` 즉시 발생
+- `MyPrinterV3` — `volatile` 플래그 제거, `Thread.interrupted()` + `interrupt()` 단독 사용 — 인터럽트로 모든 중단 제어 (권장 패턴)
+- 주요 API: `ConcurrentLinkedQueue`, `volatile`, `thread.interrupt()`, `Thread.interrupted()`
+
+---
+
 ### `thread.interrupt` — 스레드 인터럽트로 작업 중단
 - `ThreadStopMainV1` — `volatile boolean runFlag`로 중단 — `sleep()` 중 플래그 확인 불가로 지연 중단
 - `ThreadStopMainV2` — `thread.interrupt()`로 중단 — `sleep()` 중 `InterruptedException` 발생, catch 후 인터럽트 상태 false로 초기화
