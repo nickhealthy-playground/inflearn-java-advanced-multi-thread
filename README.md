@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.control.volatile1` — volatile 키워드와 메모리 가시성
+- `VolatileFlagMain` — `boolean` vs `volatile boolean` 플래그로 스레드 중단 — 비volatile 시 CPU 캐시로 인해 변경 감지 불가
+- `VolatileCountMain` — `volatile flag` + `volatile count`로 카운터 가시성 확인 — volatile 없으면 메인 스레드의 쓰기가 작업 스레드에 전달 안 됨
+- `volatile`은 읽기/쓰기 원자성 보장, 단 복합 연산(count++)엔 적용 안 됨
+- 주요 API: `volatile` 키워드
+
+---
+
 ### `thread.control.yield` — Thread.yield() 학습
 - `YieldMain` — 1000개 스레드가 각 10회 출력하며 `Thread.yield()`로 CPU 양보 동작 확인
 - `yield()`는 현재 스레드가 다른 스레드에 실행 기회를 넘기지만 보장은 없음 (힌트 수준)
