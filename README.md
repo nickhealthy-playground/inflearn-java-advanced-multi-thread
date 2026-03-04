@@ -6,6 +6,16 @@
 
 ---
 
+### `thread.sync` — 동기화 없는 동시 출금과 경쟁 조건
+- `BankAccount` — 출금·잔액 조회 계약을 정의한 인터페이스
+- `BankAccountV1` — `synchronized` 없는 구현체 — 검증과 출금 사이에 컨텍스트 스위치 발생 시 두 스레드가 동시에 출금 성공 (음수 잔액 발생)
+- `WithdrawTask` — `BankAccount`를 주입받아 `withdraw()`를 실행하는 `Runnable` — 두 스레드가 동일 계좌 객체를 공유
+- `BankMain` — 잔액 1000에서 두 스레드가 각 800 출금 시도 → 경쟁 조건 재현
+- 임계 영역(critical section) 개념, 원자성(atomicity) 부재로 인한 Race Condition 학습
+- 주요 API: `Runnable`, `Thread`, `Thread.join()`, `Thread.sleep()`
+
+---
+
 ### `thread.control.volatile1` — volatile 키워드와 메모리 가시성
 - `VolatileFlagMain` — `boolean` vs `volatile boolean` 플래그로 스레드 중단 — 비volatile 시 CPU 캐시로 인해 변경 감지 불가
 - `VolatileCountMain` — `volatile flag` + `volatile count`로 카운터 가시성 확인 — volatile 없으면 메인 스레드의 쓰기가 작업 스레드에 전달 안 됨
