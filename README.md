@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.sync` — synchronized를 이용한 임계 영역 보호
+- `BankAccountV2` — `synchronized` 메서드로 출금·잔액 조회 동기화 — 모니터 락을 획득한 스레드만 임계 영역 진입, 나머지는 BLOCKED 상태로 대기
+- 모든 객체(인스턴스)는 내부에 자신만의 모니터 락(monitor lock)을 보유
+- `synchronized`는 가시성(volatile) + 원자성을 동시에 보장
+- 주요 API: `synchronized` (메서드 레벨)
+
+---
+
 ### `thread.sync` — 동기화 없는 동시 출금과 경쟁 조건
 - `BankAccount` — 출금·잔액 조회 계약을 정의한 인터페이스
 - `BankAccountV1` — `synchronized` 없는 구현체 — 검증과 출금 사이에 컨텍스트 스위치 발생 시 두 스레드가 동시에 출금 성공 (음수 잔액 발생)
