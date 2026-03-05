@@ -6,6 +6,13 @@
 
 ---
 
+### `thread.sync` — synchronized 블록으로 임계 영역 범위 최소화
+- `BankAccountV3` — `synchronized(this)` 블록으로 검증~출금 구간만 동기화 — 로그 출력 등 비임계 로직은 락 밖에 위치시켜 락 점유 시간 단축
+- 메서드 레벨 `synchronized` vs 블록 레벨 `synchronized(this)`: 동작은 동일하나 블록이 더 세밀한 임계 영역 제어 가능
+- 주요 API: `synchronized(this) {}`, `synchronized` (메서드 vs 블록)
+
+---
+
 ### `thread.sync` — synchronized를 이용한 임계 영역 보호
 - `BankAccountV2` — `synchronized` 메서드로 출금·잔액 조회 동기화 — 모니터 락을 획득한 스레드만 임계 영역 진입, 나머지는 BLOCKED 상태로 대기
 - 모든 객체(인스턴스)는 내부에 자신만의 모니터 락(monitor lock)을 보유
