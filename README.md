@@ -7,8 +7,9 @@
 ---
 
 ### `thread.sync.test` — synchronized 연습 문제
+- `SyncTest2Main` — 로컬 변수(`localValue`)만 사용하는 카운터 — 스택에만 존재해 스레드 간 공유 없음 → `synchronized` 불필요, 동기화 대상 판단 기준 학습
 - `SyncTest1BadMain` — 두 스레드가 각 10,000회 `increment()`를 호출하는 카운터 예제 — `increment()`는 `synchronized`로 보호되나 `getCount()`는 미동기화로 가시성 문제 잠재
-- 임계 영역 보호 범위와 가시성 보장의 차이를 실습으로 확인
+- 임계 영역 보호 범위, 가시성 보장, 공유 자원 여부 판단을 실습으로 확인
 - 주요 API: `synchronized` (메서드 레벨), `Thread.join()`
 
 ---
