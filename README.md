@@ -6,6 +6,13 @@
 
 ---
 
+### `thread.sync.test` — synchronized 연습 문제
+- `SyncTest1BadMain` — 두 스레드가 각 10,000회 `increment()`를 호출하는 카운터 예제 — `increment()`는 `synchronized`로 보호되나 `getCount()`는 미동기화로 가시성 문제 잠재
+- 임계 영역 보호 범위와 가시성 보장의 차이를 실습으로 확인
+- 주요 API: `synchronized` (메서드 레벨), `Thread.join()`
+
+---
+
 ### `thread.sync` — synchronized 블록으로 임계 영역 범위 최소화
 - `BankAccountV3` — `synchronized(this)` 블록으로 검증~출금 구간만 동기화 — 로그 출력 등 비임계 로직은 락 밖에 위치시켜 락 점유 시간 단축
 - 메서드 레벨 `synchronized` vs 블록 레벨 `synchronized(this)`: 동작은 동일하나 블록이 더 세밀한 임계 영역 제어 가능
