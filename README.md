@@ -6,11 +6,13 @@
 
 ---
 
-### `thread.sync.lock` — LockSupport로 스레드 WAITING 제어
+### `thread.sync.lock` — LockSupport로 스레드 WAITING/TIMED_WAITING 제어
+- `LockSupportMainV2` — `LockSupport.parkNanos()`로 나노초 단위 타임아웃 TIMED_WAITING — 지정 시간 경과 후 자동 복귀
 - `LockSupportMainV1` — `LockSupport.park()`로 스레드를 WAITING 상태로 전환, `unpark()` 또는 `interrupt()`로 깨우는 두 가지 방식 비교
 - `park()` 후 `unpark()`로 깨우면 인터럽트 상태 false 유지, `interrupt()`로 깨우면 true 유지
-- `synchronized`의 BLOCKED와 달리 WAITING 상태 — `ReentrantLock` 구현의 기반 저수준 API
-- 주요 API: `LockSupport.park()`, `LockSupport.unpark(Thread)`, `Thread.isInterrupted()`
+- `park()`(무한 대기) vs `parkNanos()`(타임아웃) — `synchronized`의 BLOCKED와 달리 명시적 해제 가능
+- `ReentrantLock` 구현의 기반 저수준 API
+- 주요 API: `LockSupport.park()`, `LockSupport.parkNanos(long)`, `LockSupport.unpark(Thread)`
 
 ---
 
