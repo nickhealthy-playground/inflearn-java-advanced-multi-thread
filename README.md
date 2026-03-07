@@ -6,6 +6,14 @@
 
 ---
 
+### `thread.sync.lock` — LockSupport로 스레드 WAITING 제어
+- `LockSupportMainV1` — `LockSupport.park()`로 스레드를 WAITING 상태로 전환, `unpark()` 또는 `interrupt()`로 깨우는 두 가지 방식 비교
+- `park()` 후 `unpark()`로 깨우면 인터럽트 상태 false 유지, `interrupt()`로 깨우면 true 유지
+- `synchronized`의 BLOCKED와 달리 WAITING 상태 — `ReentrantLock` 구현의 기반 저수준 API
+- 주요 API: `LockSupport.park()`, `LockSupport.unpark(Thread)`, `Thread.isInterrupted()`
+
+---
+
 ### `thread.sync.test` — synchronized 연습 문제
 - `SyncTest2Main` — 로컬 변수(`localValue`)만 사용하는 카운터 — 스택에만 존재해 스레드 간 공유 없음 → `synchronized` 불필요, 동기화 대상 판단 기준 학습
 - `SyncTest1BadMain` — 두 스레드가 각 10,000회 `increment()`를 호출하는 카운터 예제 — `increment()`는 `synchronized`로 보호되나 `getCount()`는 미동기화로 가시성 문제 잠재
