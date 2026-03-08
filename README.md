@@ -24,6 +24,14 @@
 
 ---
 
+### `thread.sync` — ReentrantLock으로 synchronized 대체
+- `BankAccountV4` — `ReentrantLock`을 이용한 명시적 락 — `lock()` / `unlock()`을 직접 호출, `try-finally`로 반드시 unlock 보장
+- `synchronized`(암시적 락)와 동일한 상호 배제·가시성 보장, 단 공정성(fair) 모드·tryLock·타임아웃 등 고급 기능 제공
+- `getBalance()`도 락으로 보호하여 읽기 시 가시성 보장
+- 주요 API: `ReentrantLock.lock()`, `ReentrantLock.unlock()`, `Lock` 인터페이스
+
+---
+
 ### `thread.sync` — synchronized 블록으로 임계 영역 범위 최소화
 - `BankAccountV3` — `synchronized(this)` 블록으로 검증~출금 구간만 동기화 — 로그 출력 등 비임계 로직은 락 밖에 위치시켜 락 점유 시간 단축
 - 메서드 레벨 `synchronized` vs 블록 레벨 `synchronized(this)`: 동작은 동일하나 블록이 더 세밀한 임계 영역 제어 가능
