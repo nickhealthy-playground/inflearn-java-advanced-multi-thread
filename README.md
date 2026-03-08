@@ -24,6 +24,13 @@
 
 ---
 
+### `thread.sync` — ReentrantLock.tryLock(timeout)으로 타임아웃 락 시도
+- `BankAccountV6` — `lock.tryLock(500, TimeUnit.MILLISECONDS)` — 최대 500ms 대기 후 락 미획득 시 거래 거부
+- `tryLock()`(즉시 반환) vs `tryLock(timeout)`(일정 시간 대기): 타임아웃 버전은 짧은 경합은 허용하되 무한 대기는 방지
+- 주요 API: `ReentrantLock.tryLock(long, TimeUnit)`
+
+---
+
 ### `thread.sync` — ReentrantLock.tryLock()으로 비차단 락 시도
 - `BankAccountV5` — `lock.tryLock()` — 락 획득 실패 시 대기 없이 즉시 `false` 반환, 이미 처리 중인 작업이 있으면 거래 거부
 - `lock.lock()`(블로킹) vs `lock.tryLock()`(논블로킹): tryLock은 경합 시 대기하지 않아 응답성 우선 시나리오에 적합
