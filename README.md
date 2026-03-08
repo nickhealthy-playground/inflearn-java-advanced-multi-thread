@@ -24,6 +24,13 @@
 
 ---
 
+### `thread.sync` — ReentrantLock.tryLock()으로 비차단 락 시도
+- `BankAccountV5` — `lock.tryLock()` — 락 획득 실패 시 대기 없이 즉시 `false` 반환, 이미 처리 중인 작업이 있으면 거래 거부
+- `lock.lock()`(블로킹) vs `lock.tryLock()`(논블로킹): tryLock은 경합 시 대기하지 않아 응답성 우선 시나리오에 적합
+- 주요 API: `ReentrantLock.tryLock()`
+
+---
+
 ### `thread.sync` — ReentrantLock으로 synchronized 대체
 - `BankAccountV4` — `ReentrantLock`을 이용한 명시적 락 — `lock()` / `unlock()`을 직접 호출, `try-finally`로 반드시 unlock 보장
 - `synchronized`(암시적 락)와 동일한 상호 배제·가시성 보장, 단 공정성(fair) 모드·tryLock·타임아웃 등 고급 기능 제공
