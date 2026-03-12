@@ -1,6 +1,31 @@
 # 김영한의 실전 자바 - 고급 1편: 멀티스레드와 동시성
 
+![Java](https://img.shields.io/badge/Java-17-orange?logo=openjdk)
+![Course](https://img.shields.io/badge/Course-김영한_고급1편-blue)
+![Platform](https://img.shields.io/badge/Platform-Inflearn-green)
+
 > 학습 중 등장하는 개념·클래스·API를 커밋 단위로 기록.
+
+## 실행 방법
+
+```bash
+# JDK 17 이상 필요
+javac -d out src/**/*.java
+java -cp out thread.sync.BankMain
+```
+
+## 목차
+
+- [thread.sync.lock](#threadsynclock--locksupport로-스레드-waitingtimed_waiting-제어) — LockSupport
+- [thread.sync.test](#threadsynctest--synchronized-연습-문제) — synchronized 연습
+- [thread.sync](#threadsync--reentrantlocktrylocktimeout으로-타임아웃-락-시도) — ReentrantLock / synchronized
+- [thread.control.volatile1](#threadcontrolvolatile1--volatile-키워드와-메모리-가시성) — volatile
+- [thread.control.yield](#threadcontrolyield--threadyield-학습) — yield
+- [thread.control.printer](#threadcontrolprinter--인터럽트-적용-프린터-실습) — 프린터 실습
+- [thread.interrupt](#threadinterrupt--스레드-인터럽트로-작업-중단) — interrupt
+- [thread.control.join](#threadcontroljoin--threadjoin-학습) — join
+- [thread.start](#threadstart--스레드-생성과-실행) — 스레드 생성
+- [util](#util--스레드-공통-유틸리티) — 공통 유틸
 
 ## 학습 기록
 
